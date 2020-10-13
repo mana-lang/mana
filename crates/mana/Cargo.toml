@@ -4,7 +4,7 @@ version = "0.0.1"
 authors = ["Tom Bazarnik <tommywalkie@gmail.com>"]
 edition = "2018"
 license = "MIT"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+description = "Something something work-in-progress"
+repository = "https://github.com/tommywalkie/mana.git"
 
 [dependencies]
