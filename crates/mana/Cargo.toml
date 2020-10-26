@@ -7,4 +7,18 @@ license = "MIT"
 description = "Something something work-in-progress"
 repository = "https://github.com/tommywalkie/mana.git"
 
+[lib]
+name = "mana"
+path = "src/lib.rs"
+
+[[bin]]
+name = "mana"
+path = "src/main.rs"
+
 [dependencies]
+regex = "1.4.1"
+seahorse = "1.0.0"
+
+[features]
+std = []
+default = ["std"]
