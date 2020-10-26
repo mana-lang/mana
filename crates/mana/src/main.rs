@@ -1,4 +1,3 @@
-use mana::test;
 use std::fs::File;
 use std::io::prelude::*;
 

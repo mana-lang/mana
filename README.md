@@ -1,4 +1,5 @@
 <div align="center">
+  <img alt="Mana logo" src="https://raw.githubusercontent.com/mana-lang/mana/main/assets/logo.png" height="117" />
 </div>
 <div align="center">
   <h1>Mana</h1>
@@ -41,22 +42,23 @@ cargo install mana
 
 #### Language
 
-- [ ] Rust code ⟹ valid Mana code
-- [ ] `Any` type
-- [ ] ECMAScript like `Array` type (`map`, `filter`, `reduce`, etc.)
-- [ ] Date (wrapper around `std::time`)
-- [ ] Classes ⟹ Interfaces
-- [ ] Multi-level pseudo-inheritance
-- [ ] Union types
-- [ ] Optional parameters
+- Rust code ⟹ valid Mana code
+- `Any` type
+- `Number` type (![\sim \,](https://wikimedia.org/api/rest_v1/media/math/render/svg/ce5528a8c86c5b0121f9448aa9a117429f5b9c88) `f64` )
+- ECMAScript like `Array` type (`map`, `filter`, `reduce`, etc.)
+- Date (wrapper around `std::time`)
+- Classes ⟹ Interfaces
+- Multi-level pseudo-inheritance
+- Union types
+- Optional parameters
 
 #### Command-line tool
 
-- [ ] Cross-platform
-- [ ] Preprocessing Mana ![\rightarrow \,](https://wikimedia.org/api/rest_v1/media/math/render/svg/30c77b3d020a207c12a2e96794b739223a647089)Rust
-- [ ] Benchmarking
-- [ ] Add / remove dependency (similar to `npm install <package>`)
-- [ ] Custom scripts (similar to `npm run <script>`)
+- Cross-platform
+- Preprocessing Mana ![\rightarrow \,](https://wikimedia.org/api/rest_v1/media/math/render/svg/30c77b3d020a207c12a2e96794b739223a647089)Rust
+- Benchmarking
+- Add / remove dependency (similar to `npm install <package>`)
+- Custom scripts (similar to `npm run <script>`)
 
 ## Rationale
 
