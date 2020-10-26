@@ -75,14 +75,14 @@ When Richard Feldman, a member of the Elm core team, had to explain [_"Why Isn't
 
 No one can blame Richard. After all, the real world is way more than _barking dogs_. <sup><strong>[1]</strong></sup>
 
-Some powerful Rust features, yet still poisonous gifts, like (procedural) macros, can help developers by enabling metaprogramming while, in return:
+Some powerful Rust features, yet still poisonous gifts, like (procedural) macros, can help developers by enabling metaprogramming, which, in return:
 
-- Reducing readability, which doesn't help learning curve matters
-- Making hidden transactions a common thing
-- Can't just be used as _dev-dependencies_ <sup><strong>[2]</strong></sup> , which is quite surprising in a time where Babel, TypeScript, etc. are empowering JavaScript
-- Need to be explicitly set up to compile only once <sup><strong>[3]</strong></sup> in metaprogramming use cases or in static assignations
+- Reduce readability, which doesn't help learning curve matters
+- Make hidden transactions a common thing
+- Can't just be used as _dev-dependencies_ <sup><strong>[2]</strong></sup> , which is quite surprising in a time where Babel, TypeScript, _etc._ are empowering JavaScript
+- Need to be explicitly set up to compile only once <sup><strong>[3]</strong></sup>  
 
-The Mana language project is based on the belief that the ecosystem can be improved using an intermediate high-level language built on top of — compiling into — works great with — powered by Rust; almost like F# does with C# in .NET Core; instead of stacking postponed or closed ergonomic related RFCs [in the graveyard](https://github.com/mana-lang/mana#rust-rfc-graveyard) forever.
+The Mana language project is based on the belief that the ecosystem can be improved using an intermediate high-level language built on top of — compiling into — works great with — powered by Rust; almost like F# does with C# in .NET Core; instead of stacking postponed or closed ergonomics-related RFCs [in the graveyard](https://github.com/mana-lang/mana#rust-rfc-graveyard) forever.
 
 <strong>[1]</strong> — _Barking dogs_ is a popular theoretical example used when promoting [_Composition over Inheritance_](https://en.wikipedia.org/wiki/Composition_over_inheritance), where structs (*α*) like _Dog_ can implement traits (*β*) like _Bark_. A few Rust features, like using `T` generic type or using trait default implementations can help reducing boilerplate code, but it still implies maintaining _(α β)_ <sup><em>n</em></sup> behaviors which may scale (*n*) with the data structure complexity, especially when dealing with DOM manipulation ([_see the 20,000+ LoC TypeScript definitions_](https://github.com/microsoft/TypeScript/blob/master/lib/lib.dom.d.ts)).
 
@@ -117,9 +117,9 @@ _Watch this space!_
 
 © Copyright 2020 Tom Bazarnik.
 
-The Mana language preprocessor source code is under the [MIT License](https://github.com/mana-lang/mana/master/LICENSE). ![MIT License](https://img.shields.io/badge/License-MIT-7c2.svg)
+The Mana language project source code is under the [MIT License](https://github.com/mana-lang/mana/master/LICENSE). ![MIT License](https://img.shields.io/badge/License-MIT-7c2.svg)
 
-The Mana language logo and branding assets is licensed under [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/).
+The Mana language logo and branding assets are licensed under [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/).
 
 [![CC-BY-SA](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/)
 
