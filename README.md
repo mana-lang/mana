@@ -5,10 +5,12 @@
   <h1>Mana</h1>
   <p>Opinionated, concise and multi-paradigm Rust superset</p>
   <a href="https://crates.io/crates/mana"><img alt="Crates.io" src="https://img.shields.io/crates/v/mana"></a>
-  <a href="https://crates.io/crates/mana"><img alt="Crates.io" src="https://docs.rs/mana/badge.svg"></a>
+  <!--<a href="https://crates.io/crates/mana"><img alt="Crates.io" src="https://docs.rs/mana/badge.svg"></a>-->
+  <a href="#"><img alt="Project status" src="https://img.shields.io/badge/status-early%20concept-5E00E2"></a>
   <br>
   <br>
 </div>
+
 
 
 Mana is an opinionated Rust superset language, currently **work in progress**, intended to improve the Rust ecosystem by, hopefully, providing enough convenient tools to help developers better reuse or reason about their own code, without the need of heavy and/or hieroglyphic macros.
@@ -43,14 +45,13 @@ cargo install mana
 #### Language
 
 - Rust code ⟹ valid Mana code
-- `Any` type
-- `Number` type (![\sim \,](https://wikimedia.org/api/rest_v1/media/math/render/svg/ce5528a8c86c5b0121f9448aa9a117429f5b9c88) `f64` )
 - ECMAScript like `Array` type (`map`, `filter`, `reduce`, etc.)
 - Date (wrapper around `std::time`)
 - Classes ⟹ Interfaces
 - Multi-level pseudo-inheritance
 - Union types
 - Optional parameters
+- `Number` type (![\sim \,](https://wikimedia.org/api/rest_v1/media/math/render/svg/ce5528a8c86c5b0121f9448aa9a117429f5b9c88) `f64` )
 
 #### Command-line tool
 
@@ -64,7 +65,7 @@ cargo install mana
 
 Rust is a great high-performance, memory-safe, imperative and functional systems language with wide platform support, but is known for high learning curves and promoting monomorphization over ergonomics.
 
-This inevitably leads the Servo team to using the [`Deref` polymorphism](https://github.com/rust-unofficial/patterns/blob/master/anti_patterns/deref.md) anti-pattern on a common basis to emulate pseudo inheritance and define [_a lot_](https://github.com/search?q=new_inherited+-%3E+repo%3Aservo%2Fservo&type=Code) of DOM elements, which prompted them to submit the infamous [rust-lang/rfcs#349](https://github.com/rust-lang/rfcs/issues/349) RFC dating back to 2014. 
+This inevitably leads the Servo team to using the [`Deref` polymorphism](https://github.com/rust-unofficial/patterns/blob/master/anti_patterns/deref.md) anti-pattern on a common basis to emulate pseudo inheritance on [_a lot_](https://github.com/search?q=new_inherited+-%3E+repo%3Aservo%2Fservo&type=Code) of DOM elements, which prompted them to submit the infamous [rust-lang/rfcs#349](https://github.com/rust-lang/rfcs/issues/349) RFC dating back to **2014**. 
 
 When Richard Feldman, a member of the Elm core team, had to explain [_"Why Isn't Functional Programming the Norm?"_](https://youtu.be/QyJZzq0v7Z4) in a 2019 market dominated by Object-Oriented Programming or multi-paradigm languages :
 
@@ -116,5 +117,9 @@ _Watch this space!_
 
 © Copyright 2020 Tom Bazarnik.
 
-Licensed under the MIT License.
+The Mana language preprocessor source code is under the [MIT License](https://github.com/mana-lang/mana/master/LICENSE). ![MIT License](https://img.shields.io/badge/License-MIT-7c2.svg)
+
+The Mana language logo and branding assets is licensed under [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/).
+
+[![CC-BY-SA](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/)
 
