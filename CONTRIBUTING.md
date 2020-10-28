@@ -37,7 +37,7 @@ The Rust team has a strong preference for focusing on stability and extending th
 
 <strong>[1]</strong> — Not all community crates use the same standards, but could _eventually_ get adopted in standard library after getting some reviews and reworks in order to meet the expected standards. When `failure` error crate superseded `error-chain` and then [got deprecated in 2020](https://github.com/rust-lang-nursery/failure/pull/347), this notably impacted `tokio`, `diesel`, `tauri`, `openethereum` and `wrangler`. Of course it could be replaced by yet another existing wrapper like `anyhow`, `snafu`, `thiserror`, `eyre`...
 
-> _At this rate we'll soon have more Rust error crates than JavaScript web frameworks. Go, Rust! :)_
+> _At this rate we'll soon have more Rust error crates than JavaScript web frameworks. Go, Rust! :)_<br>
 > @**AdditionalQuestion** — [Reddit](https://www.reddit.com/r/rust/comments/dfkwfo/announcing_thiserror_a_convenient_modern/f341fyz/?utm_source=reddit&utm_medium=web2x&context=3)
 
 <br>
