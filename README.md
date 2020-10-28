@@ -122,15 +122,7 @@ The Mana language project is based on the belief that the ecosystem can be impro
 
 For any contribution or bug fix, a [**CONTRIBUTING**](https://github.com/mana-lang/mana/blob/main/CONTRIBUTING.md) guide is available.
 
-##### Found some bug ?
-
-Submit found issues, bugs, security concerns via the [**Issues**](https://github.com/mana-lang/mana/issues) tab.
-
-##### RFCs
-
-Submit new feature requests, questions via the [**Issues**](https://github.com/mana-lang/mana/issues) tab.
-
-##### Planned features
+Submit found issues, bugs, feature requests, questions, security concerns via the [**Issues**](https://github.com/mana-lang/mana/issues) tab.
 
 Mana language project features are listed in [**Projects**](https://github.com/mana-lang/mana/projects) tab.
 
