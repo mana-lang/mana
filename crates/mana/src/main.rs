@@ -10,11 +10,10 @@ fn read() -> Result<String, std::io::Error> {
 
 fn main() {
     let r = read();
-    match r {                                                
-        Ok(st) => println!("{}", st),                                                  
-        Err(error) => {                                                    
-            panic!("Problem opening the file: {:?}", error)                
-        },                                                                 
+    match r {
+        Ok(st) => println!("{}", st),
+        Err(error) => {
+            panic!("Problem opening the file: {:?}", error)
+        },
     }
-    test()
 }

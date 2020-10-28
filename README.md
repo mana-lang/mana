@@ -13,15 +13,18 @@
 
 
 
+
 Mana is an opinionated Rust superset language, currently **work in progress**, intended to improve the Rust ecosystem by, hopefully, providing enough convenient tools to help developers better reuse or reason about their own code, without the need of heavy and/or hieroglyphic macros.
 
 Simply put, Mana **shall not be** a library dependency, similarly to TypeScript.
 
 The hereby repository is for the official Mana command-line tool source code.
 
-**Summary:**
+<br>
 
-- [Install](https://github.com/mana-lang/mana#install)
+## Summary
+
+- [Getting started](https://github.com/mana-lang/mana#getting-started)
 - [Features](https://github.com/mana-lang/mana#features)
   - [Language](https://github.com/mana-lang/mana#language)
   - [Command-line tool](https://github.com/mana-lang/mana#command-line-tool)
@@ -30,9 +33,11 @@ The hereby repository is for the official Mana command-line tool source code.
 - [Contributing](https://github.com/mana-lang/mana#contributing)
 - [License](https://github.com/mana-lang/mana#license)
 
-## Install
+<br>
 
-You can install Mana from the Cargo package manager, or alternatively use one of the following OS-specific pre-built executables, when available.
+## Getting started
+
+You can install Mana using Cargo.
 
 ```bash
 cargo install mana
@@ -51,15 +56,15 @@ cargo install mana
 - Multi-level pseudo-inheritance
 - Union types
 - Optional parameters
-- `Number` type (![\sim \,](https://wikimedia.org/api/rest_v1/media/math/render/svg/ce5528a8c86c5b0121f9448aa9a117429f5b9c88) `f64` )
+- `Number` type (∼ `f64` )
 
 #### Command-line tool
 
 - Cross-platform
-- Preprocessing Mana ![\rightarrow \,](https://wikimedia.org/api/rest_v1/media/math/render/svg/30c77b3d020a207c12a2e96794b739223a647089)Rust
+- Preprocessing Mana → Rust
 - Benchmarking
-- Add / remove dependency (similar to `npm install <package>`)
-- Custom scripts (similar to `npm run <script>`)
+- Add / remove dependency (∼ [`cargo-edit`](https://github.com/killercup/cargo-edit))
+- Custom scripts (∼ [`cargo-make`](https://github.com/sagiegurari/cargo-make) or [`cargo-run-script`](https://github.com/JoshMcguigan/cargo-run-script))
 
 ## Rationale
 
@@ -79,43 +84,61 @@ Some powerful Rust features, yet still poisonous gifts, like (procedural) macros
 
 - Reduce readability, which doesn't help learning curve matters
 - Make hidden transactions a common thing
-- Can't just be used as _dev-dependencies_ <sup><strong>[2]</strong></sup> , which is quite surprising in a time where Babel, TypeScript, _etc._ are empowering JavaScript
+- Can't just be used as _dev-dependencies_ <sup><strong>[2]</strong></sup> , while stuff like Babel, TypeScript, _etc._ are now widely used in JavaScript
 - Need to be explicitly set up to compile only once <sup><strong>[3]</strong></sup>  
 
 The Mana language project is based on the belief that the ecosystem can be improved using an intermediate high-level language built on top of — compiling into — works great with — powered by Rust; almost like F# does with C# in .NET Core; instead of stacking postponed or closed ergonomics-related RFCs [in the graveyard](https://github.com/mana-lang/mana#rust-rfc-graveyard) forever.
 
 <strong>[1]</strong> — _Barking dogs_ is a popular theoretical example used when promoting [_Composition over Inheritance_](https://en.wikipedia.org/wiki/Composition_over_inheritance), where structs (*α*) like _Dog_ can implement traits (*β*) like _Bark_. A few Rust features, like using `T` generic type or using trait default implementations can help reducing boilerplate code, but it still implies maintaining _(α β)_ <sup><em>n</em></sup> behaviors which may scale (*n*) with the data structure complexity, especially when dealing with DOM manipulation ([_see the 20,000+ LoC TypeScript definitions_](https://github.com/microsoft/TypeScript/blob/master/lib/lib.dom.d.ts)).
 
-<strong>[2]</strong> — Given a library, if using dependencies like `duplicate` for code duplication with substitution, possibly combined with `doc_comment` for documentation, or if using some embed programming related crates like `cpp` (C++), `stdweb` (JavaScript) or `inline_python` (Python), users also have to compile these crates, even if purely intended for the library itself. This leads to increased compile times, which are already a hot topic ([rust-lang/rust#48547](https://github.com/rust-lang/rust/issues/48547)) alongside learning curve and adoption ([Rust Survey 2019 Results](https://blog.rust-lang.org/2020/04/17/Rust-survey-2019.html))
+<strong>[2]</strong> — Given a library, if using dependencies like `duplicate` for code duplication with substitution, possibly combined with `doc_comment` for documentation, or if using some crates with embed programming macros like `cpp` (C++), `stdweb` (JavaScript) or `inline_python` (Python), users also have to compile these crates, even if purely intended for the library itself. This leads to increased **compile times**, which is already a hot topic ([rust-lang/rust#48547](https://github.com/rust-lang/rust/issues/48547)) alongside **learning curve** and **adoption** ([Rust Survey 2019 Results](https://blog.rust-lang.org/2020/04/17/Rust-survey-2019.html))
 
-<strong>[3]</strong> — This notably happens with `regex` crate, which compiles regular expressions on instruction call, hence why [`Regex::new()` should not be used inside loops](https://github.com/rust-lang/regex#usage-avoid-compiling-the-same-regex-in-a-loop), but instead for statically assigned values, using either `lazy_static`, `once_cell` or the nightly-only `std::lazy::SyncLazy`.
+<strong>[3]</strong> — This notably happens with `regex` crate, which compiles regular expressions on instruction call, hence why [`Regex::new()` should not be used inside loops](https://github.com/rust-lang/regex#usage-avoid-compiling-the-same-regex-in-a-loop), but instead for statically assigned values, using either `lazy_static`, `once_cell` or the currently nightly-only [`std::lazy::SyncLazy`](https://doc.rust-lang.org/std/lazy/struct.SyncLazy.html).
 
 ### _Rust RFC Graveyard_
 
 <details>
     <summary>Click to expand</summary>
-    <br>
     <ul>
         <li>Efficient code reuse (<a href="https://github.com/rust-lang/rfcs/issues/349">rust-lang/rfcs#349</a>) — <strong>2014</strong></li>
+        <li><code>cargo add &#60;package&#62;</code> (<a href="https://github.com/rust-lang/cargo/issues/4">rust-lang/cargo#4</a>) — <strong>2014</strong></li>
         <li>Trait inheritance (<a href="https://github.com/rust-lang/rfcs/issues/245">rust-lang/rfcs#245</a>) — <strong>2014</strong></li>
         <li>Delegation (<a href="https://github.com/rust-lang/rfcs/issues/1406">rust-lang/rfcs#1406</a>) — <strong>2015</strong></li>
         <li>Traits fields (<a href="https://github.com/rust-lang/rfcs/issues/1546">rust-lang/rfcs#1546</a>) — <strong>2016</strong></li>
         <li>Default struct field values (<a href="https://github.com/rust-lang/rfcs/issues/1806">rust-lang/rfcs#1806</a>) — <strong>2016</strong></li>
+        <li>Make commands in dev-dependencies available to run (<a href="https://github.com/rust-lang/cargo/issues/2267">rust-lang/cargo#2267</a>) — <strong>2016</strong></li>
         <li><code>Vec::remove_item</code> (<a href="https://github.com/rust-lang/rfcs/issues/40062">rust-lang/rfcs#40062</a>) — <strong>2017</strong></li>
+        <li>Implement binary-only dependencies (<a href="https://github.com/rust-lang/cargo/pull/3870">rust-lang/cargo#3870</a>) — <strong>2017</strong></li>
         <li>Generic integers (<a href="https://github.com/rust-lang/rfcs/issues/2581">rust-lang/rfcs#2581</a>) — <strong>2018</strong></li>
         <li><code>throw</code> expressions (<a href="https://github.com/rust-lang/rfcs/issues/2426">rust-lang/rfcs#2426</a>) — <strong>2018</strong></li>
+        <li><code>cargo add &#60;package&#62;</code> (<em>round two</em>) (<a href="https://github.com/rust-lang/cargo/issues/5586">rust-lang/cargo#5586</a>) — <strong>2018</strong></li>
         <li>Delegation (<em>round two</em>) (<a href="https://github.com/rust-lang/rfcs/issues/2393">rust-lang/rfcs#2393</a>) — <strong>2018</strong></li>
         <li>Destructuring assignment (<a href="https://github.com/rust-lang/rfcs/issues/2649">rust-lang/rfcs#2649</a>) — <strong>2019</strong></li>
     </ul>
 </details>
 
+
 ## Contributing
 
-_Watch this space!_
+For any contribution or bug fix, a [**CONTRIBUTING**](https://github.com/mana-lang/mana/blob/main/CONTRIBUTING.md) guide is available.
+
+##### Found some bug ?
+
+Submit found issues, bugs, security concerns via the [**Issues**](https://github.com/mana-lang/mana/issues) tab.
+
+##### RFCs
+
+Submit new feature requests, questions via the [**Issues**](https://github.com/mana-lang/mana/issues) tab.
+
+##### Planned features
+
+Mana language project features are listed in [**Projects**](https://github.com/mana-lang/mana/projects) tab.
+
+Mana language ecosystem features (integrations, showcase, etc.) are listed [in a separate project](https://github.com/orgs/mana-lang/projects/1) inside the `mana-lang` organization.
 
 ## License
 
-© Copyright 2020 Tom Bazarnik.
+© Copyright 2020 The Mana developers.
 
 The Mana language project source code is under the [MIT License](https://github.com/mana-lang/mana/master/LICENSE). ![MIT License](https://img.shields.io/badge/License-MIT-7c2.svg)
 
