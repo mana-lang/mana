@@ -22,7 +22,7 @@ The hereby repository is for the official Mana command-line tool source code.
 
 <br>
 
-## Summary
+#### Summary
 
 - [Getting started](https://github.com/mana-lang/mana#getting-started)
 - [Features](https://github.com/mana-lang/mana#features)
@@ -55,8 +55,6 @@ cargo install mana
 - Classes ⟹ Interfaces
 - Multi-level pseudo-inheritance
 - Union types
-- Optional parameters
-- `Number` type (∼ `f64` )
 
 #### Command-line tool
 
@@ -64,6 +62,7 @@ cargo install mana
 - Preprocessing Mana → Rust
 - Benchmarking
 - Add / remove dependency (∼ [`cargo-edit`](https://github.com/killercup/cargo-edit))
+- Binary dev-dependencies
 - Custom scripts (∼ [`cargo-make`](https://github.com/sagiegurari/cargo-make) or [`cargo-run-script`](https://github.com/JoshMcguigan/cargo-run-script))
 
 ## Rationale
@@ -99,6 +98,7 @@ The Mana language project is based on the belief that the ecosystem can be impro
 
 <details>
     <summary>Click to expand</summary>
+    <br>
     <ul>
         <li>Efficient code reuse (<a href="https://github.com/rust-lang/rfcs/issues/349">rust-lang/rfcs#349</a>) — <strong>2014</strong></li>
         <li><code>cargo add &#60;package&#62;</code> (<a href="https://github.com/rust-lang/cargo/issues/4">rust-lang/cargo#4</a>) — <strong>2014</strong></li>

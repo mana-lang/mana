@@ -18,8 +18,8 @@ The Rust team has a strong preference for focusing on stability and extending th
 
 - Mana **shall be** easy to use
 - Mana **shall be** easy to learn
-- Mana **shall work** for Windows (MSVC & GNU), MacOS and Linux
-- Mana **shall be** a single dev-dependency
+- Mana **shall work** for Windows, MacOS and Linux
+- Mana **shall be** a single _dev-dependency_
 - Mana **shall not require** additional dependency
 - Mana **shall not require** procedural macros to be enabled
 - Mana **shall not require** to use nightly Rust
