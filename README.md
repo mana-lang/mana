@@ -113,9 +113,9 @@ The Mana language project is based on the belief that the ecosystem can be impro
         <li><code>throw</code> expressions (<a href="https://github.com/rust-lang/rfcs/issues/2426">rust-lang/rfcs#2426</a>) — <strong>2018</strong></li>
         <li><code>cargo add &#60;package&#62;</code> (<em>round two</em>) (<a href="https://github.com/rust-lang/cargo/issues/5586">rust-lang/cargo#5586</a>) — <strong>2018</strong></li>
         <li>Delegation (<em>round two</em>) (<a href="https://github.com/rust-lang/rfcs/issues/2393">rust-lang/rfcs#2393</a>) — <strong>2018</strong></li>
-        <li>Destructuring assignment (<a href="https://github.com/rust-lang/rfcs/issues/2649">rust-lang/rfcs#2649</a>) — <strong>2019</strong></li>
     </ul>
 </details>
+
 
 
 ## Contributing
