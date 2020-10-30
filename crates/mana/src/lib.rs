@@ -1,7 +1,5 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
+mod lexer;
+mod cli;
+
+pub use lexer::{Ast, AstElement, Token};
+pub use cli::{App, start_cli};

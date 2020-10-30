@@ -76,3 +76,9 @@ Run tests for the entire workspace.
 cargo test
 ```
 
+## Dependencies
+
+This technical section is meant to track all direct dependencies used by Mana, and more specifically the _why_ they are being used. Whenever possible, prefer minimal dependencies over big ones like `rand`.
+
+- `seahorse` : Seahorse is a minimal CLI framework with no dependencies.
+- `logos` : Logos allows to create fast lexers with ease, uses `regex` under the hood.

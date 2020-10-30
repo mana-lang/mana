@@ -1,19 +1,21 @@
-use std::fs::File;
-use std::io::prelude::*;
+use std::path::Path;
+use mana::{Ast, start_cli};
 
-fn read() -> Result<String, std::io::Error> {
-    let mut file = File::open("crates/mana/examples/hello.mana")?;
-    let mut contents = String::new();
-    file.read_to_string(&mut contents)?;
-    Ok(contents)
+/// Print type of input value
+fn _print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>())
+}
+
+/// Proof-of-concept home-made extensible Rust AST parser
+fn demo() {
+    let path = Path::new("./crates/mana/src/lib.rs");
+    let ast = Ast::from(path);
+    for elem in ast.elements {
+        println!("{:?} - {:?}", elem.__type, elem.position);
+    }
 }
 
 fn main() {
-    let r = read();
-    match r {
-        Ok(st) => println!("{}", st),
-        Err(error) => {
-            panic!("Problem opening the file: {:?}", error)
-        },
-    }
+    demo();
+    start_cli()
 }

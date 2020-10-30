@@ -16,9 +16,5 @@ name = "mana"
 path = "src/main.rs"
 
 [dependencies]
-regex = "1.4.1"
+logos = "0.11.4"
 seahorse = "1.0.0"
-
-[features]
-std = []
-default = ["std"]
