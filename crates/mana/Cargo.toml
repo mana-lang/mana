@@ -4,7 +4,7 @@ version = "0.0.1"
 authors = ["Tom Bazarnik <tommywalkie@gmail.com>"]
 edition = "2018"
 license = "MIT"
-description = "Something something work-in-progress"
+description = "Opinionated, concise and multi-paradigm Rust superset language"
 repository = "https://github.com/tommywalkie/mana.git"
 
 [lib]
