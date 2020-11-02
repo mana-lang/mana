@@ -1,7 +1,7 @@
 use super::token;
+use logos::{Logos, Span};
 use std::fs::File;
 use std::io::prelude::*;
-use logos::{Logos, Span};
 use std::path::Path;
 
 /// Abstract syntax tree element
@@ -13,7 +13,7 @@ pub struct AstElement {
     /// Child elements. Relevant for functions, modules, tuples, macros, etc.
     pub children: Vec<AstElement>,
     /// Parent element reference
-    pub parent: Option<&'static AstElement>
+    pub parent: Option<&'static AstElement>,
 }
 
 impl AstElement {
@@ -22,7 +22,7 @@ impl AstElement {
             __type: token::Token::Error,
             position: None,
             children: Vec::<AstElement>::new(),
-            parent: None
+            parent: None,
         }
     }
 }
@@ -39,7 +39,7 @@ pub struct Ast {
     /// File path
     pub path: Option<&'static Path>,
     /// Abstract syntax tree elements
-    pub elements: Vec<AstElement>
+    pub elements: Vec<AstElement>,
 }
 
 impl Ast {
@@ -47,10 +47,18 @@ impl Ast {
     pub fn new() -> Ast {
         Ast {
             path: None,
-            elements: Vec::<AstElement>::new()
+            elements: Vec::<AstElement>::new(),
         }
     }
     /// Internal method to feed the `Ast` item from `String` source code
+    /// 
+    /// Here is what it does:
+    /// 
+    /// [1] - Use the lexer based on Token enum
+    /// 
+    /// [2] - Collect all found tokens in a vector
+    /// 
+    /// [2] - Feed the AST (self) with element type and position (Range)
     fn feed_from_source(&mut self, source: String) {
         let lexer = super::Token::lexer(&source);
         let v: Vec<_> = lexer.spanned().collect();

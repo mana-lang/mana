@@ -64,13 +64,20 @@ Compile the workspace members by using Cargo.
 cargo build
 ```
 
-Alternatively, you can compile and run the `mana` binary.
+Alternatively, you can compile the workspace and run the `mana` binary.
 
 ```bash
-cargo run
+# Use the `--` delimiter to pass Mana arguments and flags through Cargo
+cargo run -- my-command --option argument
 ```
 
-Run tests for the entire workspace.
+Compile the documentation and open in a browser.
+
+```bash
+cargo doc --open
+```
+
+Run tests and _doc-tests_ for the entire workspace.
 
 ```bash
 cargo test

@@ -1,6 +1,8 @@
 use logos::Logos;
 
-/// Enum for findable tokens and statements
+/// Enum for findable primitive tokens
+///
+/// This is meant to match isolated characters, identifiers, numbers, keywords, strings. This won't match tuples, function declarations, modules, type aliases and unexpected characters (_e.g._ braces at the root of the file)
 #[derive(Logos, Debug, PartialEq)]
 pub enum Token {
     /// [Attribute macros](https://doc.rust-lang.org/stable/reference/procedural-macros.html#attribute-macros) like `derive`<br>
@@ -16,7 +18,7 @@ pub enum Token {
     /// // Here is a comment!
     /// /// Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do [...]
     /// ```
-    #[regex(r"/(//?!*|\*+!*).+\n")]
+    #[regex(r"/(//?!*|\*+!*).+")]
     Comment,
 
     /// Rust comments
@@ -24,7 +26,7 @@ pub enum Token {
     /// // Here is a comment!
     /// /// Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do [...]
     /// ```
-    #[regex(r"/\*.*\*/\n")]
+    #[regex(r"\n/\*.*\*/\n")]
     MultiLineComment,
 
     /// Abstract statement
@@ -230,6 +232,26 @@ pub enum Token {
     #[token("yield")]
     KwYield,
 
+    /// Mutable reference statement
+    #[token("&mut")]
+    MutableRef,
+
+    /// Mutable static lifetime statement
+    #[token("&'static")]
+    MutableStaticLifetime,
+
+    /// Static lifetime statement
+    #[token("'static")]
+    StaticLifetime,
+
+    /// Mutable lifetime statement
+    #[regex(r"&'[a-zA-Z0-9_]+")]
+    MutableLifetime,
+
+    /// Lifetime statement
+    #[regex(r"'[a-zA-Z0-9_]+")]
+    Lifetime,
+
     /// Period punctuation
     #[token(".")]
     Period,
@@ -262,84 +284,107 @@ pub enum Token {
     #[token(")")]
     RightParenthesis,
 
+    /// Left brace
     #[token("{")]
     LeftBrace,
 
+    /// Right brace
     #[token("}")]
     RightBrace,
 
+    /// Left chevron
     #[token("<")]
     LeftChevron,
 
+    /// Right chevron
     #[token(">")]
     RightChevron,
 
+    /// Left bracket
     #[token("[")]
     LeftBracket,
 
+    /// Right bracket
     #[token("]")]
     RightBracket,
 
+    /// Plus sign
     #[token(" +")]
     Plus,
 
+    /// Hyphen ~ Minus sign
     #[token("-")]
     Minus,
 
+    /// Asterisk sign
     #[token("*")]
     Asterisk,
 
+    /// Slash sign
     #[token("/")]
     Slash,
 
+    /// Backslash sign
     #[token("\\")]
     Backslash,
 
+    /// Grave accent
     #[token("`")]
     GraveAccent,
 
+    /// Modulo ~ Percentage sign
     #[token("%")]
     Modulo,
 
+    /// Apostrophe character
     #[token("#")]
     Hash,
 
+    /// Pipe ~ OR character
     #[token("|")]
     Pipe,
 
+    /// Equal ~ double hyphen character
     #[token("=")]
     Equal,
 
+    /// Dollar character
     #[token("$")]
     Dollar,
 
+    /// Ampersand ~ AND character
     #[token("&")]
     Ampersand,
 
+    /// Caret character
     #[token("^")]
     Caret,
 
+    /// Apostrophe character
     #[token("'")]
     Apostrophe,
 
-    #[token("\"")]
-    Prime,
-
+    /// Horizontal tab
     #[regex(r"\t")]
     HorizontalTab,
 
+    /// Vertical tab
     #[regex(r"\v")]
     VerticalTab,
 
-    #[regex(r"\n+")]
+    /// New line / carriage return
+    #[regex(r"[\n\r]+")]
     NextLine,
 
+    /// Space character (skipped in practice, unskip for debugging purposes)
     #[regex(r" +", logos::skip)]
     Space,
 
+    /// Number value
     #[regex(r"[0-9]+")]
     Number,
 
+    /// Macro identifier
     #[regex(r"[a-zA-Z0-9_]*[a-zA-Z]+[a-zA-Z0-9_]*!")]
     Macro,
 
@@ -347,10 +392,28 @@ pub enum Token {
     #[regex(r"[a-zA-Z0-9_]*[a-zA-Z]+[a-zA-Z0-9_]*")]
     Identifier,
 
+    /// Underscore character
     #[token("_")]
     Underscore,
 
+    /// Quoted string value, between quotes `"`
+    #[regex(r#"\u{0022}(((\u{005C}\u{0022})|[^\u{005C}\u{0022}])*)*\u{0022}"#)]
+    QuotedString,
+
+    /// Single-quoted string value, between single quotes (apostrophes) `'`
+    #[regex(r#"\u{0027}(((\u{005C}\u{0027})|[^\u{005C}\u{0027}])*)*\u{0027}"#)]
+    SingleQuotedString,
+
+    /// ECMAScript-like template literals, between quotes ```
+    #[regex(r#"\u{0060}(((\u{005C}\u{0060})|[^\u{005C}\u{0060}])*)*\u{0060}"#)]
+    TemplateString,
+
+    // #[regex(r#"\u{007B}([^\u{007B}\u{007D}]|(\u{007B}([^\u{007B}\u{007D}]|\u{007B}([^\u{007B}\u{007D}]|)*\u{007D})*\u{007D}))*\u{007D}[\n\t\f\r]+"#)]
+    // FunctionDeclaration,
+    /// Double quote ~ prime character
+    #[token("\"")]
+    Prime,
+
     #[error]
-    #[regex(r"[\t\f\r]+", logos::skip)]
     Error,
 }

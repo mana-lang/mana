@@ -1,9 +1,9 @@
-use seahorse::{Command, Context, Flag, Action};
+use seahorse::{Action, Command, Context, Flag};
 
 /// Custom implementation of `seahorse::App`
-/// 
+///
 /// Currently, `seahorse::App` handles the _man_ pages by itself.
-/// 
+///
 /// This implementation will allow adding a [docopt](http://docopt.org/)-compliant reporter.
 #[derive(Default)]
 pub struct App {
@@ -207,13 +207,7 @@ impl App {
     /// app.run(args);
     /// ```
     pub fn run(&self, args: Vec<String>) {
-
         // TODO: This is where we'll customize some stuff..
-        if args.contains(&"--help".to_string()) {
-            self.help();
-            return;
-        }
-
         let args = Self::normalized_args(args);
         let (cmd_v, args_v) = match args.len() {
             1 => args.split_at(1),

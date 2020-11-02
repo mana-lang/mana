@@ -1,5 +1,5 @@
+use mana::{start_cli, Ast};
 use std::path::Path;
-use mana::{Ast, start_cli};
 
 /// Print type of input value
 fn _print_type_of<T>(_: &T) {
@@ -7,7 +7,7 @@ fn _print_type_of<T>(_: &T) {
 }
 
 /// Proof-of-concept home-made extensible Rust AST parser
-fn demo() {
+fn _demo() {
     let path = Path::new("./crates/mana/src/lib.rs");
     let ast = Ast::from(path);
     for elem in ast.elements {
@@ -15,7 +15,17 @@ fn demo() {
     }
 }
 
+fn _demo_random() {
+    let a: f64 = mana::rand::f64();
+    println!("{:?}", a);
+    let b: f64 = mana::rand::f64();
+    println!("{:?}", b);
+    let c: f64 = mana::rand::f64();
+    println!("{:?}", c);
+}
+
 fn main() {
-    demo();
+    //_demo();
+    //_demo_random();
     start_cli()
 }
