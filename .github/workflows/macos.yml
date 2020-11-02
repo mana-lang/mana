@@ -1,4 +1,4 @@
-name: build
+name: macos
 
 on: [push, pull_request]
 
@@ -7,7 +7,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [macOS-latest]
         rust: [stable, nightly, beta]
     steps:
     - uses: hecrj/setup-rust-action@v1
